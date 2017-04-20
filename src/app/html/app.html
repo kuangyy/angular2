@@ -1,0 +1,23 @@
+
+<!-- 注意[]后面接的是属性名 不是字符串 字符串需要再加双引号 -->
+<h1 [myHighlight] >{{title}}</h1>
+<h1 [myHighlight]="red" >{{title}}</h1>
+<h1 myHighlight="red" >{{title}}</h1>
+<h1 [myHighlight]="'red'" >{{title}}</h1>
+<h1 [myHighlight] defaultColor="green" >{{title}}</h1>
+<nav>
+    <!-- routerLink路由链接 routerLinkActive 选中事件css类 queryParams 添加参数 -->
+    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+
+    <!-- router link -->
+    <a routerLink="/404" routerLinkActive="active">404</a>
+    <!-- router script -->
+    <a (click)="clickRouter()">click router</a>
+
+    <a href="app/html/t1.html"> go t1 </a>
+
+</nav>
+
+<!-- router-outlet 路由显示 使用ID区分 -->
+<router-outlet></router-outlet>
