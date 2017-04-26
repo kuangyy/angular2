@@ -21,14 +21,13 @@ export class Title {
     // return this.http.get('/assets/data.json')
     // .map(res => res.json());
 
-    let url = 'http://localhost:9080/a';
+    let url = 'http://localhost:9080/a/hi';
 
     // let params = new URLSearchParams();
     // params.set('format', 'json');
     // params.set('callback', 'JSONP_CALLBACK');
 
     // return this.jsonp.get(url, {search: params})
-
 
     return this.http.get(url)
       .map(this.extractData);

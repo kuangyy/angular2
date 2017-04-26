@@ -1,0 +1,50 @@
+<div>
+
+
+  <table>
+    <thead>
+      <h2>motto table</h2><button (click)="theForm&&theForm.reset();showEditPanel();">add</button>
+      <tr>
+        <td>id</td><td>name</td><td>translate</td><td>createTime</td><td>operation</td>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let motto of mottoList">
+        <td>{{motto.id}}</td>
+        <td>{{motto.name}}</td>
+        <td>{{motto.translate}}</td>
+        <td>{{motto.createTime | dateFormat | date:'y-MM-dd HH:mm:ss'}}</td>
+        <td>
+          <button type="button" (click)="showEditPanel(motto)">edit</button>
+          <button type="button" (click)="delete(motto.id);getList();">delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <hr>
+  {{motto | json}}
+  <form #theForm="ngForm" *ngIf="editPanel" autocomplete="off">
+    <ul>
+      <li *ngIf="motto?.id">
+        <input value="{{motto?.id}}" readonly />
+      </li>
+      <li>
+        <input [(ngModel)]="motto.name" name="name" required />
+      </li>
+      <li>
+        <input [(ngModel)]="motto.translate" name="translate"/>
+      </li>
+      <li *ngIf="motto?.createTime">
+        <input value="{{motto.createTime | dateFormat | date:'y-MM-dd HH:mm:ss'}}" readonly/>
+      </li>
+      <li>
+        <button type="button" (click)="submitMotto();theForm.reset();hideEditPanel();">submit</button><button (click)="hideEditPanel();theForm.reset()">undo</button>
+      </li>
+    </ul>
+  </form>
+
+      <div class="errorMessage" *ngIf="errorMessage">{{errorMessage}}</div>
+</div>

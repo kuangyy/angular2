@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  public submitState(value: string) {
+  public submitForm(value: string) {
     console.log('submitState', value);
     this.appState.set('value', value);
     this.localState.value = '';

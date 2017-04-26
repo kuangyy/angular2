@@ -3,15 +3,17 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { routes } from './barrel.routes';
-import { BarrelComponent } from './barrel.component';
+import { routes } from './motto.routes';
+import { MottoComponent } from './motto.component';
+import { DateFormatPipe } from '../pipe/date-format.pipe';
 
-console.log('`Barrel` bundle loaded asynchronously');
+console.log('`Motto` bundle loaded asynchronously');
 
 @NgModule({
   declarations: [
     // Components / Directives/ Pipes
-    BarrelComponent,
+    MottoComponent,
+    DateFormatPipe
   ],
   imports: [
     CommonModule,
@@ -19,6 +21,6 @@ console.log('`Barrel` bundle loaded asynchronously');
     RouterModule.forChild(routes),
   ],
 })
-export class BarrelModule {
+export class MottoModule {
   public static routes = routes;
 }
